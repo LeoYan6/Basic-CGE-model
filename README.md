@@ -82,3 +82,9 @@ To work with the current contents, you will likely need:
 - The project currently includes both model source files and generated output artifacts in `gams/` and `model_docs/`.
 - Some older or auxiliary working folders are intentionally not described here because they are already excluded by `.gitignore`.
 - If this repository will be shared, you may later want to expand `.gitignore` to exclude more generated GAMS and LaTeX output files.
+
+## License
+
+This repository is currently released under the `MIT` License. See `LICENSE`.
+
+If any input data, external materials, or third-party content in the project are subject to separate usage terms, those terms should be checked independently from the repository license.
