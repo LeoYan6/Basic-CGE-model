@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Editor / OS
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Generated results
+results_output/
+
+# Input-output data
+io2sam/ 
+
+# Archived files
+archived/
+
+# The python version
+python/

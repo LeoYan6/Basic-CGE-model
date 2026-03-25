@@ -1,0 +1,575 @@
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 1
+Basic CGE Model 2.0
+C o m p i l a t i o n
+
+
+   2   
+   3  *----------------------------------------------------------------------------------------------------
+   4  *This is a simple single-region, single-sector, two-factor, open-economy CGE model.
+   5  *The firm maximizes its profit subjected to constant return-to-scale CES technology.
+   6  *The households save a fixed proportion of its income into the bank,
+   7  *and then maximize its utility (increasing & convex) subjected to the budget constraint.
+   8  *The government levies a production tax, a direct tax & an import tariff, and uses income to purchase.
+   9  *It operates with a constant fiscal surplus by lending to/borrowing from the bank.
+  10  *The bank absorbs households savings & government net surplus, and forms investment.
+  11  *Imports are specified using Armington assumption, while exports follow the CET function.
+  12  *In total, there are seven markets: five goods markets (activity output, exports, domestic goods,
+  13  *imports, composite goods) & two factor markets.
+  14  *----------------------------------------------------------------------------------------------------
+  15   
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 2
+Basic CGE Model 2.0
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_2.0.gms
+     2       49 GDXIN          1      49  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  45.2.0 e4d2ee31 WEX-WEI
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 3
+Basic CGE Model 2.0
+E x e c u t i o n
+
+
+----     43 SET t  time frame
+
+base ,    homo ,    labup,    capup,    totup,    notrf
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 4
+Basic CGE Model 2.0
+Range Statistics    SOLVE main_model Using MCP From line 419
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 5
+Basic CGE Model 2.0
+Model Statistics    SOLVE main_model Using MCP From line 419
+
+
+LOOPS                                 tsim   base
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          31     SINGLE EQUATIONS           31
+BLOCKS OF VARIABLES          36     SINGLE VARIABLES           31
+NON ZERO ELEMENTS            98     NON LINEAR N-Z             56
+CODE LENGTH                 163     CONSTANT POOL              28
+
+
+GENERATION TIME      =        0.016 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim base
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 6
+Basic CGE Model 2.0
+Solution Report     SOLVE main_model Using MCP From line 419
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  419
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+ EVALUATION ERRORS              0             0
+31 row/cols, 98 non-zeros, 10.20% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA(base))
+Maximum of F. . . . . . . . . .  5.8044e-06 eqn: (YPS_eq(base))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QD_eq(base))
+                                            var: (PA(base))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QD_eq(base))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(base))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(base))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(base))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  1.9895e-13 eqn: (QD_eq(base))
+Inf-Norm of Normal Map. . . . .  1.9895e-13 eqn: (QD_eq(base))
+Inf-Norm of Minimum Map . . . .  1.9895e-13 eqn: (QD_eq(base))
+Inf-Norm of Fischer Function. .  1.9895e-13 eqn: (QD_eq(base))
+Inf-Norm of Grad Fischer Fcn. .  1.7346e-11 eqn: (PA_eq(base))
+Two-Norm of Grad Fischer Fcn. .  2.3959e-11
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA(base))
+Maximum of F. . . . . . . . . .  1.9895e-13 eqn: (QD_eq(base))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QD_eq(base))
+                                            var: (PD(base))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 7
+Basic CGE Model 2.0
+Range Statistics    SOLVE main_model Using MCP From line 419
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.476E+00, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 1.243E+02]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 8
+Basic CGE Model 2.0
+Model Statistics    SOLVE main_model Using MCP From line 419
+
+
+LOOPS                                 tsim   homo
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          31     SINGLE EQUATIONS           31
+BLOCKS OF VARIABLES          36     SINGLE VARIABLES           31
+NON ZERO ELEMENTS            98     NON LINEAR N-Z             56
+CODE LENGTH                 163     CONSTANT POOL              29
+
+
+GENERATION TIME      =        0.015 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim homo
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 9
+Basic CGE Model 2.0
+Solution Report     SOLVE main_model Using MCP From line 419
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  419
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         1    2147483647
+ EVALUATION ERRORS              0             0
+31 row/cols, 98 non-zeros, 10.20% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA(homo))
+Maximum of F. . . . . . . . . .  4.1425e+01 eqn: (PD_eq(homo))
+Maximum of Grad F . . . . . . .  1.2427e+02 eqn: (PD_eq(homo))
+                                            var: (PD(homo))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QD_eq(homo))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(homo))
+Maximum Column Norm . . . . . .  2.1006e+02 var: (PD(homo))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(homo))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  4.2633e-14 eqn: (QD_eq(homo))
+Inf-Norm of Normal Map. . . . .  4.2633e-14 eqn: (QD_eq(homo))
+Inf-Norm of Minimum Map . . . .  4.2633e-14 eqn: (QD_eq(homo))
+Inf-Norm of Fischer Function. .  4.2633e-14 eqn: (QD_eq(homo))
+Inf-Norm of Grad Fischer Fcn. .  2.3977e-12 eqn: (PA_eq(homo))
+Two-Norm of Grad Fischer Fcn. .  3.4630e-12
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.3729e+02 var: (YP(homo))
+Maximum of F. . . . . . . . . .  4.2633e-14 eqn: (QD_eq(homo))
+Maximum of Grad F . . . . . . .  5.5233e+01 eqn: (QD_eq(homo))
+                                            var: (PD(homo))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 10
+Basic CGE Model 2.0
+Range Statistics    SOLVE main_model Using MCP From line 419
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 11
+Basic CGE Model 2.0
+Model Statistics    SOLVE main_model Using MCP From line 419
+
+
+LOOPS                                 tsim   labup
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          31     SINGLE EQUATIONS           31
+BLOCKS OF VARIABLES          36     SINGLE VARIABLES           31
+NON ZERO ELEMENTS            98     NON LINEAR N-Z             56
+CODE LENGTH                 164     CONSTANT POOL              30
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim labup
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 12
+Basic CGE Model 2.0
+Solution Report     SOLVE main_model Using MCP From line 419
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  419
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         3    2147483647
+ EVALUATION ERRORS              0             0
+31 row/cols, 98 non-zeros, 10.20% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA(labup))
+Maximum of F. . . . . . . . . .  9.7177e+00 eqn: (QL_eq(labup))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QD_eq(labup))
+                                            var: (PA(labup))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QD_eq(labup))
+Minimum Row Norm. . . . . . . .  9.5100e-01 eqn: (QA_eq(labup))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(labup))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(labup))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  1.7337e-12 eqn: (QK_eq(labup))
+Inf-Norm of Normal Map. . . . .  1.7337e-12 eqn: (QK_eq(labup))
+Inf-Norm of Minimum Map . . . .  1.7337e-12 eqn: (QK_eq(labup))
+Inf-Norm of Fischer Function. .  1.7337e-12 eqn: (QK_eq(labup))
+Inf-Norm of Grad Fischer Fcn. .  4.0388e-11 eqn: (PAT_eq(labup))
+Two-Norm of Grad Fischer Fcn. .  4.6688e-11
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.2555e+02 var: (QA(labup))
+Maximum of F. . . . . . . . . .  1.7337e-12 eqn: (QK_eq(labup))
+Maximum of Grad F . . . . . . .  1.0234e+02 eqn: (QD_eq(labup))
+                                            var: (PD(labup))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 13
+Basic CGE Model 2.0
+Range Statistics    SOLVE main_model Using MCP From line 419
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 14
+Basic CGE Model 2.0
+Model Statistics    SOLVE main_model Using MCP From line 419
+
+
+LOOPS                                 tsim   capup
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          31     SINGLE EQUATIONS           31
+BLOCKS OF VARIABLES          36     SINGLE VARIABLES           31
+NON ZERO ELEMENTS            98     NON LINEAR N-Z             56
+CODE LENGTH                 164     CONSTANT POOL              30
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim capup
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 15
+Basic CGE Model 2.0
+Solution Report     SOLVE main_model Using MCP From line 419
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  419
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         2    2147483647
+ EVALUATION ERRORS              0             0
+31 row/cols, 98 non-zeros, 10.20% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA(capup))
+Maximum of F. . . . . . . . . .  7.2902e+00 eqn: (QK_eq(capup))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QD_eq(capup))
+                                            var: (PA(capup))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QD_eq(capup))
+Minimum Row Norm. . . . . . . .  9.6351e-01 eqn: (QA_eq(capup))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(capup))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(capup))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  3.5117e-07 eqn: (QK_eq(capup))
+Inf-Norm of Normal Map. . . . .  3.5117e-07 eqn: (QK_eq(capup))
+Inf-Norm of Minimum Map . . . .  3.5117e-07 eqn: (QK_eq(capup))
+Inf-Norm of Fischer Function. .  3.5117e-07 eqn: (QK_eq(capup))
+Inf-Norm of Grad Fischer Fcn. .  1.0824e-05 eqn: (PAT_eq(capup))
+Two-Norm of Grad Fischer Fcn. .  1.3451e-05
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.1859e+02 var: (QA(capup))
+Maximum of F. . . . . . . . . .  3.5117e-07 eqn: (QK_eq(capup))
+Maximum of Grad F . . . . . . .  9.6660e+01 eqn: (QD_eq(capup))
+                                            var: (PD(capup))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 16
+Basic CGE Model 2.0
+Range Statistics    SOLVE main_model Using MCP From line 419
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 17
+Basic CGE Model 2.0
+Model Statistics    SOLVE main_model Using MCP From line 419
+
+
+LOOPS                                 tsim   totup
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          31     SINGLE EQUATIONS           31
+BLOCKS OF VARIABLES          36     SINGLE VARIABLES           31
+NON ZERO ELEMENTS            98     NON LINEAR N-Z             56
+CODE LENGTH                 165     CONSTANT POOL              31
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim totup
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 18
+Basic CGE Model 2.0
+Solution Report     SOLVE main_model Using MCP From line 419
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  419
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         2    2147483647
+ EVALUATION ERRORS              0             0
+31 row/cols, 98 non-zeros, 10.20% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA(totup))
+Maximum of F. . . . . . . . . .  9.7177e+00 eqn: (QL_eq(totup))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QD_eq(totup))
+                                            var: (PA(totup))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QD_eq(totup))
+Minimum Row Norm. . . . . . . .  9.1345e-01 eqn: (QA_eq(totup))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(totup))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(totup))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  5.5047e-07 eqn: (QL_eq(totup))
+Inf-Norm of Normal Map. . . . .  5.5047e-07 eqn: (QL_eq(totup))
+Inf-Norm of Minimum Map . . . .  5.5047e-07 eqn: (QL_eq(totup))
+Inf-Norm of Fischer Function. .  5.5047e-07 eqn: (QL_eq(totup))
+Inf-Norm of Grad Fischer Fcn. .  2.4975e-05 eqn: (PAT_eq(totup))
+Two-Norm of Grad Fischer Fcn. .  2.7360e-05
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.5246e+02 var: (QA(totup))
+Maximum of F. . . . . . . . . .  5.5047e-07 eqn: (QL_eq(totup))
+Maximum of Grad F . . . . . . .  1.2427e+02 eqn: (QD_eq(totup))
+                                            var: (PD(totup))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 19
+Basic CGE Model 2.0
+Range Statistics    SOLVE main_model Using MCP From line 419
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 20
+Basic CGE Model 2.0
+Model Statistics    SOLVE main_model Using MCP From line 419
+
+
+LOOPS                                 tsim   notrf
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          31     SINGLE EQUATIONS           31
+BLOCKS OF VARIABLES          36     SINGLE VARIABLES           31
+NON ZERO ELEMENTS            96     NON LINEAR N-Z             54
+CODE LENGTH                 160     CONSTANT POOL              27
+
+
+GENERATION TIME      =        0.015 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim notrf
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 21
+Basic CGE Model 2.0
+Solution Report     SOLVE main_model Using MCP From line 419
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  419
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT         1    2147483647
+ EVALUATION ERRORS              0             0
+31 row/cols, 96 non-zeros, 9.99% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA(notrf))
+Maximum of F. . . . . . . . . .  2.5643e-01 eqn: (YG_eq(notrf))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QD_eq(notrf))
+                                            var: (PA(notrf))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QD_eq(notrf))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(notrf))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(notrf))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(notrf))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  1.2294e-08 eqn: (PD_eq(notrf))
+Inf-Norm of Normal Map. . . . .  1.2256e-08 eqn: (PD_eq(notrf))
+Inf-Norm of Minimum Map . . . .  1.2256e-08 eqn: (PD_eq(notrf))
+Inf-Norm of Fischer Function. .  1.2256e-08 eqn: (PD_eq(notrf))
+Inf-Norm of Grad Fischer Fcn. .  5.8180e-07 eqn: (PA_eq(notrf))
+Two-Norm of Grad Fischer Fcn. .  6.5765e-07
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA(notrf))
+Maximum of F. . . . . . . . . .  1.2256e-08 eqn: (PD_eq(notrf))
+Maximum of Grad F . . . . . . .  8.2687e+01 eqn: (QD_eq(notrf))
+                                            var: (PA(notrf))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 22
+Basic CGE Model 2.0
+E x e c u t i o n
+
+
+----    500 The WALRAS:
+
+----    500 VARIABLE D.L  Dummy variable for WALRAS test
+
+base  4.83169E-13,    homo  5.68434E-14,    labup -3.4674E-12,    capup -5.30034E-7,    totup -3.7232E-12,    notrf 4.417245E-9
+
+
+
+EXECUTION TIME       =        0.453 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+
+
+USER: Medium MUD - 10 User License                   S230614|0002AO-WIN
+      Tianjin University of Technology, School of Management    DC16610
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_2.0.gms
+Output     D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_2.0.lst

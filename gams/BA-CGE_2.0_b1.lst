@@ -1,0 +1,1063 @@
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 1
+Basic CGE Model 2.0_beta1
+C o m p i l a t i o n
+
+
+   2   
+   3  *----------------------------------------------------------------------------------------------------
+   4  *This is a simple single-region, single-sector, two-factor, open-economy CGE model.
+   5  *The firm maximizes its profit subjected to constant return-to-scale CES technology.
+   6  *The households allocate a fixed proportion of its income as savings, which turn to investments,
+   7  *and then maximize its utility (increasing & convex) subjected to the budget constraint.
+   8  *The government levies a production tax & a direct tax & an import tariff, and uses income to purchase.
+   9  *It operates with a constant fiscal surplus.
+  10  *Imports are specified using Armington assumption, while exports follow the CET function.
+  11  *In total, there are seven markets: five goods markets (domestic output, exports, domestic sold,
+  12  *imports, armington composite) and two factor markets.
+  13  *----------------------------------------------------------------------------------------------------
+  14   
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 2
+Basic CGE Model 2.0_beta1
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_2.0_b1.gms
+     2       59 IF EXIST       1      59  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
+     3       62 GDXIN          1      62  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
+
+
+COMPILATION TIME     =        0.235 SECONDS      3 MB  45.2.0 e4d2ee31 WEX-WEI
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 3
+Basic CGE Model 2.0_beta1
+E x e c u t i o n
+
+
+----     31 SET t  time frame
+
+base ,    homo ,    labup,    capup,    totup,    notrf
+
+
+----    323 VARIABLE PAT.L  Price of activity output (pre-tax)
+
+base  0.912,    homo  0.912,    labup 0.912,    capup 0.912,    totup 0.912,    notrf 0.912
+
+
+----    323 VARIABLE PMT.L  Price of imported goods (pre-tax)
+
+base  0.984,    homo  0.984,    labup 0.984,    capup 0.984,    totup 0.984,    notrf 0.984
+
+
+----    323 VARIABLE QL.L  Quantities of labor demand
+
+base  52.957,    homo  52.957,    labup 52.957,    capup 52.957,    totup 52.957,    notrf 52.957
+
+
+----    323 VARIABLE QK.L  Quantities of capital demand
+
+base  39.728,    homo  39.728,    labup 39.728,    capup 39.728,    totup 39.728,    notrf 39.728
+
+
+----    323 VARIABLE QAs.L  Quantities of activity output supply
+
+base  101.642,    homo  101.642,    labup 101.642,    capup 101.642,    totup 101.642,    notrf 101.642
+
+
+----    323 VARIABLE QDs.L  Quantities of domestic goods supply
+
+base  82.850,    homo  82.850,    labup 82.850,    capup 82.850,    totup 82.850,    notrf 82.850
+
+
+----    323 VARIABLE QE.L  Quantities of exported goods supply
+
+base  18.793,    homo  18.793,    labup 18.793,    capup 18.793,    totup 18.793,    notrf 18.793
+
+
+----    323 VARIABLE QAd.L  Quantities of activity output demand
+
+base  101.642,    homo  101.642,    labup 101.642,    capup 101.642,    totup 101.642,    notrf 101.642
+
+
+----    323 VARIABLE QDd.L  Quantities of domestic goods demand
+
+base  82.850,    homo  82.850,    labup 82.850,    capup 82.850,    totup 82.850,    notrf 82.850
+
+
+----    323 VARIABLE QM.L  Quantities of imported goods demand
+
+base  16.266,    homo  16.266,    labup 16.266,    capup 16.266,    totup 16.266,    notrf 16.266
+
+
+----    323 VARIABLE QC.L  Quantities of composite goods supply
+
+base  99.116,    homo  99.116,    labup 99.116,    capup 99.116,    totup 99.116,    notrf 99.116
+
+
+----    323 VARIABLE QP.L  Quantities of households composite goods
+
+base  38.401,    homo  38.401,    labup 38.401,    capup 38.401,    totup 38.401,    notrf 38.401
+
+
+----    323 VARIABLE QG.L  Quantities of government composite goods
+
+base  17.363,    homo  17.363,    labup 17.363,    capup 17.363,    totup 17.363,    notrf 17.363
+
+
+----    323 VARIABLE QI.L  Quantities of investment composite goods
+
+base  43.352,    homo  43.352,    labup 43.352,    capup 43.352,    totup 43.352,    notrf 43.352
+
+
+----    323 VARIABLE YFS.L  Values of net foreign savings
+
+base  -2.783,    homo  -2.783,    labup -2.783,    capup -2.783,    totup -2.783,    notrf -2.783
+
+
+----    323 VARIABLE YPC.L  Values of households consumption
+
+base  38.401,    homo  38.401,    labup 38.401,    capup 38.401,    totup 38.401,    notrf 38.401
+
+
+----    323 VARIABLE YPS.L  Values of households savings
+
+base  53.127,    homo  53.127,    labup 53.127,    capup 53.127,    totup 53.127,    notrf 53.127
+
+
+----    323 VARIABLE YP.L  Values of households income
+
+base  91.527,    homo  91.527,    labup 91.527,    capup 91.527,    totup 91.527,    notrf 91.527
+
+
+----    323 VARIABLE YGC.L  Values of government purchase
+
+base  17.363,    homo  17.363,    labup 17.363,    capup 17.363,    totup 17.363,    notrf 17.363
+
+
+----    323 VARIABLE YGS.L  Values of government fiscal surplus
+
+base  -6.991,    homo  -6.991,    labup -6.991,    capup -6.991,    totup -6.991,    notrf -6.991
+
+
+----    323 VARIABLE YG.L  Values of government income
+
+base  10.371,    homo  10.371,    labup 10.371,    capup 10.371,    totup 10.371,    notrf 10.371
+
+
+----    323 VARIABLE YI.L  Values of investment expenditures
+
+base  43.352,    homo  43.352,    labup 43.352,    capup 43.352,    totup 43.352,    notrf 43.352
+
+
+----    323 VARIABLE txp.L  Tax rate on production
+
+base  0.097,    homo  0.097,    labup 0.097,    capup 0.097,    totup 0.097,    notrf 0.097
+
+
+----    323 VARIABLE txm.L  Tax rate on imports
+
+base  0.016,    homo  0.016,    labup 0.016,    capup 0.016,    totup 0.016,    notrf 0.016
+
+
+----    323 VARIABLE betas.L  Households saving propensity
+
+base  0.580,    homo  0.580,    labup 0.580,    capup 0.580,    totup 0.580,    notrf 0.580
+
+
+----    323 VARIABLE txh.L  Tax rate on households income
+
+base  0.012,    homo  0.012,    labup 0.012,    capup 0.012,    totup 0.012,    notrf 0.012
+
+
+----    351 PARAMETER alpl  Cost share of labor in production function
+
+base  0.571,    homo  0.571,    labup 0.571,    capup 0.571,    totup 0.571,    notrf 0.571
+
+
+----    351 PARAMETER alpk  Cost share of capital in production function
+
+base  0.429,    homo  0.429,    labup 0.429,    capup 0.429,    totup 0.429,    notrf 0.429
+
+
+----    351 PARAMETER aa  Scale parameter in production function
+
+base  2.171,    homo  2.171,    labup 2.171,    capup 2.171,    totup 2.171,    notrf 2.171
+
+
+----    351 PARAMETER gamd  Cost share of domestic goods in export CET function
+
+base  0.815,    homo  0.815,    labup 0.815,    capup 0.815,    totup 0.815,    notrf 0.815
+
+
+----    351 PARAMETER game  Cost share of exported goods in export CET function
+
+base  0.185,    homo  0.185,    labup 0.185,    capup 0.185,    totup 0.185,    notrf 0.185
+
+
+----    351 PARAMETER alpd  Cost share of domestic goods in armington import nest function
+
+base  0.836,    homo  0.836,    labup 0.836,    capup 0.836,    totup 0.836,    notrf 0.836
+
+
+----    351 PARAMETER alpm  Cost share of imported goods in armington import nest function
+
+base  0.164,    homo  0.164,    labup 0.164,    capup 0.164,    totup 0.164,    notrf 0.164
+
+
+----    351 PARAMETER am  Scale parameter in armington import nest function
+
+base  1.563,    homo  1.563,    labup 1.563,    capup 1.563,    totup 1.563,    notrf 1.563
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 4
+Basic CGE Model 2.0_beta1
+Range Statistics    SOLVE main_model Using MCP From line 408
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 5
+Basic CGE Model 2.0_beta1
+Model Statistics    SOLVE main_model Using MCP From line 408
+
+
+LOOPS                                 tsim   base
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          32     SINGLE EQUATIONS           32
+BLOCKS OF VARIABLES          37     SINGLE VARIABLES           32
+NON ZERO ELEMENTS            91     NON LINEAR N-Z             45
+CODE LENGTH                 141     CONSTANT POOL              30
+
+
+GENERATION TIME      =        0.125 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim base
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 6
+Basic CGE Model 2.0_beta1
+Solution Report     SOLVE main_model Using MCP From line 408
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  408
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.046 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+ EVALUATION ERRORS              0             0
+32 row/cols, 91 non-zeros, 8.89% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QAd(base))
+Maximum of F. . . . . . . . . .  1.0000e-05 eqn: (PA_eq(base))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QDs_eq(base))
+                                            var: (PA(base))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QDs_eq(base))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(base))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(base))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(base))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  4.5138e-14 eqn: (QAs_eq(base))
+Inf-Norm of Normal Map. . . . .  5.3291e-15 eqn: (YI_eq(base))
+Inf-Norm of Minimum Map . . . .  7.1054e-15 eqn: (YI_eq(base))
+Inf-Norm of Fischer Function. .  5.3291e-15 eqn: (YI_eq(base))
+Inf-Norm of Grad Fischer Fcn. .  3.3382e-14 eqn: (PE_eq(base))
+Two-Norm of Grad Fischer Fcn. .  4.5400e-14
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QAs(base))
+Maximum of F. . . . . . . . . .  5.3291e-15 eqn: (YI_eq(base))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QDs_eq(base))
+                                            var: (PA(base))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 7
+Basic CGE Model 2.0_beta1
+Range Statistics    SOLVE main_model Using MCP From line 408
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.476E+00, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 1.243E+02]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 8
+Basic CGE Model 2.0_beta1
+Model Statistics    SOLVE main_model Using MCP From line 408
+
+
+LOOPS                                 tsim   homo
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          32     SINGLE EQUATIONS           32
+BLOCKS OF VARIABLES          37     SINGLE VARIABLES           32
+NON ZERO ELEMENTS            91     NON LINEAR N-Z             45
+CODE LENGTH                 141     CONSTANT POOL              31
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim homo
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 9
+Basic CGE Model 2.0_beta1
+Solution Report     SOLVE main_model Using MCP From line 408
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  408
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         1    2147483647
+ EVALUATION ERRORS              0             0
+32 row/cols, 91 non-zeros, 8.89% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QAd(homo))
+Maximum of F. . . . . . . . . .  4.1425e+01 eqn: (QDd_eq(homo))
+Maximum of Grad F . . . . . . .  1.2427e+02 eqn: (QDd_eq(homo))
+                                            var: (PD(homo))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QDs_eq(homo))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(homo))
+Maximum Column Norm . . . . . .  2.1006e+02 var: (PD(homo))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(homo))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  4.5138e-14 eqn: (QAs_eq(homo))
+Inf-Norm of Normal Map. . . . .  1.4211e-14 eqn: (QDd_eq(homo))
+Inf-Norm of Minimum Map . . . .  1.4211e-14 eqn: (QDd_eq(homo))
+Inf-Norm of Fischer Function. .  1.4211e-14 eqn: (QDd_eq(homo))
+Inf-Norm of Grad Fischer Fcn. .  7.8491e-13 eqn: (PD_eq(homo))
+Two-Norm of Grad Fischer Fcn. .  8.5533e-13
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.3729e+02 var: (YP(homo))
+Maximum of F. . . . . . . . . .  1.4211e-14 eqn: (QDd_eq(homo))
+Maximum of Grad F . . . . . . .  5.5233e+01 eqn: (QDd_eq(homo))
+                                            var: (PD(homo))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 10
+Basic CGE Model 2.0_beta1
+Range Statistics    SOLVE main_model Using MCP From line 408
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 11
+Basic CGE Model 2.0_beta1
+Model Statistics    SOLVE main_model Using MCP From line 408
+
+
+LOOPS                                 tsim   labup
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          32     SINGLE EQUATIONS           32
+BLOCKS OF VARIABLES          37     SINGLE VARIABLES           32
+NON ZERO ELEMENTS            91     NON LINEAR N-Z             45
+CODE LENGTH                 141     CONSTANT POOL              30
+
+
+GENERATION TIME      =        0.016 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim labup
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 12
+Basic CGE Model 2.0_beta1
+Solution Report     SOLVE main_model Using MCP From line 408
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  408
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+ EVALUATION ERRORS              0             0
+32 row/cols, 91 non-zeros, 8.89% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QAd(labup))
+Maximum of F. . . . . . . . . .  4.0938e-01 eqn: (QAs_eq(labup))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QDs_eq(labup))
+                                            var: (PA(labup))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QDs_eq(labup))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(labup))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(labup))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(labup))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  2.8422e-14 eqn: (YP_eq(labup))
+Inf-Norm of Normal Map. . . . .  2.8422e-14 eqn: (YP_eq(labup))
+Inf-Norm of Minimum Map . . . .  2.8422e-14 eqn: (YP_eq(labup))
+Inf-Norm of Fischer Function. .  2.8422e-14 eqn: (YP_eq(labup))
+Inf-Norm of Grad Fischer Fcn. .  1.4843e-12 eqn: (PA_eq(labup))
+Two-Norm of Grad Fischer Fcn. .  2.2435e-12
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.2814e+02 var: (QAs(labup))
+Maximum of F. . . . . . . . . .  2.8422e-14 eqn: (YP_eq(labup))
+Maximum of Grad F . . . . . . .  1.0445e+02 eqn: (QDs_eq(labup))
+                                            var: (PA(labup))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 13
+Basic CGE Model 2.0_beta1
+Range Statistics    SOLVE main_model Using MCP From line 408
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 14
+Basic CGE Model 2.0_beta1
+Model Statistics    SOLVE main_model Using MCP From line 408
+
+
+LOOPS                                 tsim   capup
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          32     SINGLE EQUATIONS           32
+BLOCKS OF VARIABLES          37     SINGLE VARIABLES           32
+NON ZERO ELEMENTS            91     NON LINEAR N-Z             45
+CODE LENGTH                 141     CONSTANT POOL              30
+
+
+GENERATION TIME      =        0.015 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim capup
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 15
+Basic CGE Model 2.0_beta1
+Solution Report     SOLVE main_model Using MCP From line 408
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  408
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+ EVALUATION ERRORS              0             0
+32 row/cols, 91 non-zeros, 8.89% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QAd(capup))
+Maximum of F. . . . . . . . . .  3.1582e-01 eqn: (QAs_eq(capup))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QDs_eq(capup))
+                                            var: (PA(capup))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QDs_eq(capup))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(capup))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(capup))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(capup))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  2.6185e-14 eqn: (QC_eq(capup))
+Inf-Norm of Normal Map. . . . .  1.4211e-14 eqn: (YP_eq(capup))
+Inf-Norm of Minimum Map . . . .  1.4211e-14 eqn: (YP_eq(capup))
+Inf-Norm of Fischer Function. .  1.4211e-14 eqn: (YP_eq(capup))
+Inf-Norm of Grad Fischer Fcn. .  5.5840e-13 eqn: (PK_eq(capup))
+Two-Norm of Grad Fischer Fcn. .  8.2775e-13
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.2094e+02 var: (QAs(capup))
+Maximum of F. . . . . . . . . .  1.4211e-14 eqn: (YP_eq(capup))
+Maximum of Grad F . . . . . . .  9.8576e+01 eqn: (QDs_eq(capup))
+                                            var: (PA(capup))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 16
+Basic CGE Model 2.0_beta1
+Range Statistics    SOLVE main_model Using MCP From line 408
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 17
+Basic CGE Model 2.0_beta1
+Model Statistics    SOLVE main_model Using MCP From line 408
+
+
+LOOPS                                 tsim   totup
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          32     SINGLE EQUATIONS           32
+BLOCKS OF VARIABLES          37     SINGLE VARIABLES           32
+NON ZERO ELEMENTS            91     NON LINEAR N-Z             45
+CODE LENGTH                 141     CONSTANT POOL              30
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim totup
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 18
+Basic CGE Model 2.0_beta1
+Solution Report     SOLVE main_model Using MCP From line 408
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  408
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.015 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+ EVALUATION ERRORS              0             0
+32 row/cols, 91 non-zeros, 8.89% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QAd(totup))
+Maximum of F. . . . . . . . . .  6.5989e-01 eqn: (QAs_eq(totup))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QDs_eq(totup))
+                                            var: (PA(totup))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QDs_eq(totup))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(totup))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(totup))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(totup))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  3.3854e-14 eqn: (QAs_eq(totup))
+Inf-Norm of Normal Map. . . . .  2.8422e-14 eqn: (YP_eq(totup))
+Inf-Norm of Minimum Map . . . .  2.8422e-14 eqn: (YP_eq(totup))
+Inf-Norm of Fischer Function. .  2.8422e-14 eqn: (YP_eq(totup))
+Inf-Norm of Grad Fischer Fcn. .  1.6659e-12 eqn: (PA_eq(totup))
+Two-Norm of Grad Fischer Fcn. .  2.3957e-12
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.5246e+02 var: (QAs(totup))
+Maximum of F. . . . . . . . . .  2.8422e-14 eqn: (YP_eq(totup))
+Maximum of Grad F . . . . . . .  1.2427e+02 eqn: (QDs_eq(totup))
+                                            var: (PA(totup))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 19
+Basic CGE Model 2.0_beta1
+Range Statistics    SOLVE main_model Using MCP From line 408
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 20
+Basic CGE Model 2.0_beta1
+Model Statistics    SOLVE main_model Using MCP From line 408
+
+
+LOOPS                                 tsim   notrf
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          32     SINGLE EQUATIONS           32
+BLOCKS OF VARIABLES          37     SINGLE VARIABLES           32
+NON ZERO ELEMENTS            89     NON LINEAR N-Z             43
+CODE LENGTH                 138     CONSTANT POOL              29
+
+
+GENERATION TIME      =        0.016 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+               L O O P S               tsim notrf
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 21
+Basic CGE Model 2.0_beta1
+Solution Report     SOLVE main_model Using MCP From line 408
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  408
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         1    2147483647
+ EVALUATION ERRORS              0             0
+32 row/cols, 89 non-zeros, 8.69% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QAd(notrf))
+Maximum of F. . . . . . . . . .  2.5643e-01 eqn: (YG_eq(notrf))
+Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QDs_eq(notrf))
+                                            var: (PA(notrf))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  1.6751e+02 eqn: (QDs_eq(notrf))
+Minimum Row Norm. . . . . . . .  1.0000e+00 eqn: (QP_eq(notrf))
+Maximum Column Norm . . . . . .  1.6864e+02 var: (PD(notrf))
+Minimum Column Norm . . . . . .  1.0000e+00 var: (QP(notrf))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  1.2255e-08 eqn: (QDd_eq(notrf))
+Inf-Norm of Normal Map. . . . .  1.2255e-08 eqn: (QDd_eq(notrf))
+Inf-Norm of Minimum Map . . . .  1.2255e-08 eqn: (QDd_eq(notrf))
+Inf-Norm of Fischer Function. .  1.2255e-08 eqn: (QDd_eq(notrf))
+Inf-Norm of Grad Fischer Fcn. .  5.8178e-07 eqn: (PA_eq(notrf))
+Two-Norm of Grad Fischer Fcn. .  6.5743e-07
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QAs(notrf))
+Maximum of F. . . . . . . . . .  1.2255e-08 eqn: (QDd_eq(notrf))
+Maximum of Grad F . . . . . . .  8.2687e+01 eqn: (QDs_eq(notrf))
+                                            var: (PA(notrf))
+
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 19:45:39 Page 22
+Basic CGE Model 2.0_beta1
+E x e c u t i o n
+
+
+----    489 PARAMETER patck  Check changes in PAT
+
+homo  50.000,    notrf  0.255
+
+
+----    489 PARAMETER pmtck  Check changes in PMT
+
+homo 50.000
+
+
+----    489 PARAMETER ppck  Check changes in PP
+
+homo 50.000
+
+
+----    489 PARAMETER pgck  Check changes in PG
+
+homo 50.000
+
+
+----    489 PARAMETER pick  Check changes in PI
+
+homo 50.000
+
+
+----    489 PARAMETER plck  Check changes in PL
+
+homo  50.000,    labup 26.070,    capup 18.981,    totup 50.000,    notrf  0.255
+
+
+----    489 PARAMETER pkck  Check changes in PK
+
+homo  50.000,    labup 26.070,    capup 18.981,    totup 50.000,    notrf  0.255
+
+
+----    489 PARAMETER pack  Check changes in PA
+
+homo  50.000,    notrf  0.255
+
+
+----    489 PARAMETER pdck  Check changes in PD
+
+homo  50.000,    notrf  0.312
+
+
+----    489 PARAMETER peck  Check changes in PE
+
+homo 50.000
+
+
+----    489 PARAMETER pmck  Check changes in PM
+
+homo  50.000,    notrf -1.576
+
+
+----    489 PARAMETER pcck  Check changes in PC
+
+homo 50.000
+
+
+----    493 PARAMETER qlck  Check changes in QL
+
+                      ( ALL       0.000 )
+
+
+----    493 PARAMETER qkck  Check changes in QK
+
+                      ( ALL       0.000 )
+
+
+----    493 PARAMETER qasck  Check changes in QAs
+
+homo  -1.3981E-14,    labup      26.070,    capup      18.981,    totup      50.000
+
+
+----    493 PARAMETER qdsck  Check changes in QDs
+
+homo  -1.7153E-14,    labup      26.070,    capup      18.981,    totup      50.000,    notrf       0.058
+
+
+----    493 PARAMETER qeck  Check changes in QE
+
+labup 26.070,    capup 18.981,    totup 50.000,    notrf -0.254
+
+
+----    493 PARAMETER qadck  Check changes in QAd
+
+homo  -1.3981E-14,    labup      26.070,    capup      18.981,    totup      50.000
+
+
+----    493 PARAMETER qddck  Check changes in QDd
+
+homo  -1.7153E-14,    labup      26.070,    capup      18.981,    totup      50.000,    notrf       0.058
+
+
+----    493 PARAMETER qmck  Check changes in QM
+
+labup 26.070,    capup 18.981,    totup 50.000,    notrf  1.978
+
+
+----    493 PARAMETER qcck  Check changes in QC
+
+homo  -2.8675E-14,    labup      26.070,    capup      18.981,    totup      50.000,    notrf       0.370
+
+
+----    493 PARAMETER yfsck  Check changes in YFS
+
+homo   50.000,    labup  26.070,    capup  18.981,    totup  50.000,    notrf -13.093
+
+
+----    493 PARAMETER qpck  Check changes in QP
+
+labup 26.070,    capup 18.981,    totup 50.000,    notrf  0.255
+
+
+----    493 PARAMETER ypcck  Check changes in YPC
+
+homo  50.000,    labup 26.070,    capup 18.981,    totup 50.000,    notrf  0.255
+
+
+----    493 PARAMETER ypsck  Check changes in YPS
+
+homo  50.000,    labup 26.070,    capup 18.981,    totup 50.000,    notrf  0.255
+
+
+----    493 PARAMETER ypck  Check changes in YP
+
+homo  50.000,    labup 26.070,    capup 18.981,    totup 50.000,    notrf  0.255
+
+
+----    493 PARAMETER qgck  Check changes in QG
+
+labup 15.573,    capup 11.338,    totup 29.867,    notrf -1.328
+
+
+----    493 PARAMETER ygcck  Check changes in YGC
+
+homo  50.000,    labup 15.573,    capup 11.338,    totup 29.867,    notrf -1.328
+
+
+----    493 PARAMETER ygsck  Check changes in YGS
+
+homo 50.000
+
+
+----    493 PARAMETER ygck  Check changes in YG
+
+homo  50.000,    labup 26.070,    capup 18.981,    totup 50.000,    notrf -2.224
+
+
+----    493 PARAMETER qick  Check changes in QI
+
+homo  -1.6390E-14,    labup      30.274,    capup      22.042,    totup      58.063,    notrf       1.153
+
+
+----    493 PARAMETER yick  Check changes in YI
+
+homo  50.000,    labup 30.274,    capup 22.042,    totup 58.063,    notrf  1.153
+
+
+----    499 VARIABLE PAT.L  Price of activity output (pre-tax)
+
+base  0.912,    homo  1.368,    labup 0.912,    capup 0.912,    totup 0.912,    notrf 0.914
+
+
+----    499 VARIABLE PMT.L  Price of imported goods (pre-tax)
+
+base  0.984,    homo  1.476,    labup 0.984,    capup 0.984,    totup 0.984,    notrf 0.984
+
+
+----    499 VARIABLE PP.L  Price of households composite goods
+
+base  1.000,    homo  1.500,    labup 1.000,    capup 1.000,    totup 1.000,    notrf 1.000
+
+
+----    499 VARIABLE PG.L  Price of government composite goods
+
+base  1.000,    homo  1.500,    labup 1.000,    capup 1.000,    totup 1.000,    notrf 1.000
+
+
+----    499 VARIABLE PI.L  Price of investment composite goods
+
+base  1.000,    homo  1.500,    labup 1.000,    capup 1.000,    totup 1.000,    notrf 1.000
+
+
+----    499 VARIABLE PL.L  Price of labor (wages)
+
+base  1.000,    homo  1.500,    labup 1.261,    capup 1.190,    totup 1.500,    notrf 1.003
+
+
+----    499 VARIABLE PK.L  Price of capital (rents)
+
+base  1.000,    homo  1.500,    labup 1.261,    capup 1.190,    totup 1.500,    notrf 1.003
+
+
+----    499 VARIABLE PA.L  Price of activity output
+
+base  1.000,    homo  1.500,    labup 1.000,    capup 1.000,    totup 1.000,    notrf 1.003
+
+
+----    499 VARIABLE PD.L  Price of domestic goods
+
+base  1.000,    homo  1.500,    labup 1.000,    capup 1.000,    totup 1.000,    notrf 1.003
+
+
+----    499 VARIABLE PE.L  Price of exported goods
+
+base  1.000,    homo  1.500,    labup 1.000,    capup 1.000,    totup 1.000,    notrf 1.000
+
+
+----    499 VARIABLE PM.L  Price of imported goods
+
+base  1.000,    homo  1.500,    labup 1.000,    capup 1.000,    totup 1.000,    notrf 0.984
+
+
+----    499 VARIABLE PC.L  Price of composite goods
+
+base  1.000,    homo  1.500,    labup 1.000,    capup 1.000,    totup 1.000,    notrf 1.000
+
+
+----    503 VARIABLE QL.L  Quantities of labor demand
+
+base  52.957,    homo  52.957,    labup 52.957,    capup 52.957,    totup 52.957,    notrf 52.957
+
+
+----    503 VARIABLE QK.L  Quantities of capital demand
+
+base  39.728,    homo  39.728,    labup 39.728,    capup 39.728,    totup 39.728,    notrf 39.728
+
+
+----    503 VARIABLE QAs.L  Quantities of activity output supply
+
+base  101.642,    homo  101.642,    labup 128.141,    capup 120.935,    totup 152.463,    notrf 101.642
+
+
+----    503 VARIABLE QDs.L  Quantities of domestic goods supply
+
+base   82.850,    homo   82.850,    labup 104.449,    capup  98.576,    totup 124.274,    notrf  82.897
+
+
+----    503 VARIABLE QE.L  Quantities of exported goods supply
+
+base  18.793,    homo  18.793,    labup 23.692,    capup 22.360,    totup 28.189,    notrf 18.745
+
+
+----    503 VARIABLE QAd.L  Quantities of activity output demand
+
+base  101.642,    homo  101.642,    labup 128.141,    capup 120.935,    totup 152.463,    notrf 101.642
+
+
+----    503 VARIABLE QDd.L  Quantities of domestic goods demand
+
+base   82.850,    homo   82.850,    labup 104.449,    capup  98.576,    totup 124.274,    notrf  82.897
+
+
+----    503 VARIABLE QM.L  Quantities of imported goods demand
+
+base  16.266,    homo  16.266,    labup 20.506,    capup 19.353,    totup 24.399,    notrf 16.588
+
+
+----    503 VARIABLE QC.L  Quantities of composite goods supply
+
+base   99.116,    homo   99.116,    labup 124.955,    capup 117.929,    totup 148.673,    notrf  99.482
+
+
+----    503 VARIABLE YFS.L  Values of net foreign savings
+
+base  -2.783,    homo  -4.175,    labup -3.509,    capup -3.311,    totup -4.175,    notrf -2.419
+
+
+----    503 VARIABLE QP.L  Quantities of households composite goods
+
+base  38.401,    homo  38.401,    labup 48.412,    capup 45.690,    totup 57.601,    notrf 38.499
+
+
+----    503 VARIABLE YPC.L  Values of households consumption
+
+base  38.401,    homo  57.601,    labup 48.412,    capup 45.690,    totup 57.601,    notrf 38.499
+
+
+----    503 VARIABLE YPS.L  Values of households savings
+
+base  53.127,    homo  79.690,    labup 66.977,    capup 63.211,    totup 79.690,    notrf 53.262
+
+
+----    503 VARIABLE YP.L  Values of households income
+
+base   91.527,    homo  137.291,    labup 115.389,    capup 108.900,    totup 137.291,    notrf  91.761
+
+
+----    503 VARIABLE QG.L  Quantities of government composite goods
+
+base  17.363,    homo  17.363,    labup 20.066,    capup 19.331,    totup 22.548,    notrf 17.132
+
+
+----    503 VARIABLE YGC.L  Values of government purchase
+
+base  17.363,    homo  26.044,    labup 20.066,    capup 19.331,    totup 22.548,    notrf 17.132
+
+
+----    503 VARIABLE YGS.L  Values of government fiscal surplus
+
+base   -6.991,    homo  -10.487,    labup  -6.991,    capup  -6.991,    totup  -6.991,    notrf  -6.991
+
+
+----    503 VARIABLE YG.L  Values of government income
+
+base  10.371,    homo  15.557,    labup 13.075,    capup 12.340,    totup 15.557,    notrf 10.141
+
+
+----    503 VARIABLE QI.L  Quantities of investment composite goods
+
+base  43.352,    homo  43.352,    labup 56.477,    capup 52.908,    totup 68.524,    notrf 43.852
+
+
+----    503 VARIABLE YI.L  Values of investment expenditures
+
+base  43.352,    homo  65.028,    labup 56.477,    capup 52.908,    totup 68.524,    notrf 43.852
+
+
+----    509 VARIABLE D.L  Dummy variable for WALRAS test
+
+base  -1.4211E-14,    labup -2.8422E-14,    capup -1.4211E-14,    totup -2.8422E-14,    notrf 4.417075E-9
+
+
+
+EXECUTION TIME       =        1.515 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+
+
+USER: Medium MUD - 10 User License                   S230614|0002AO-WIN
+      Tianjin University of Technology, School of Management    DC16610
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_2.0_b1.gms
+Output     D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_2.0_b1.lst

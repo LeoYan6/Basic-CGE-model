@@ -1,0 +1,44 @@
+B 3 C o m p i l a t i o n
+B 21 E x e c u t i o n
+I 21 t
+I 27 L
+I 32 K
+I 37 Q
+I 42 U
+I 47 Y
+I 52 alpl
+I 57 alpk
+I 62 a
+B 70 Range Statistics    SOLVE main_model Using MCP From line 181
+B 81 Model Statistics    SOLVE main_model Using MCP From line 181
+B 100 Solution Report     SOLVE main_model Using MCP From line 181
+B 155 Range Statistics    SOLVE main_model Using MCP From line 181
+B 166 Model Statistics    SOLVE main_model Using MCP From line 181
+B 185 Solution Report     SOLVE main_model Using MCP From line 181
+B 240 Range Statistics    SOLVE main_model Using MCP From line 181
+B 251 Model Statistics    SOLVE main_model Using MCP From line 181
+B 270 Solution Report     SOLVE main_model Using MCP From line 181
+B 325 Range Statistics    SOLVE main_model Using MCP From line 181
+B 336 Model Statistics    SOLVE main_model Using MCP From line 181
+B 355 Solution Report     SOLVE main_model Using MCP From line 181
+B 410 Range Statistics    SOLVE main_model Using MCP From line 181
+B 421 Model Statistics    SOLVE main_model Using MCP From line 181
+B 440 Solution Report     SOLVE main_model Using MCP From line 181
+B 495 E x e c u t i o n
+I 495 pck
+I 501 wck
+I 506 rck
+I 512 lck
+I 517 kck
+I 521 qck
+I 526 uck
+I 531 yck
+I 536 P
+I 541 W
+I 546 R
+I 551 L
+I 556 K
+I 561 Q
+I 566 U
+I 571 Y
+I 576 D

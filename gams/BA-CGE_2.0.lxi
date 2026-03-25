@@ -1,0 +1,25 @@
+B 3 C o m p i l a t i o n
+B 22 Include File Summary
+B 34 E x e c u t i o n
+I 34 t
+B 43 Range Statistics    SOLVE main_model Using MCP From line 419
+B 54 Model Statistics    SOLVE main_model Using MCP From line 419
+B 73 Solution Report     SOLVE main_model Using MCP From line 419
+B 128 Range Statistics    SOLVE main_model Using MCP From line 419
+B 139 Model Statistics    SOLVE main_model Using MCP From line 419
+B 158 Solution Report     SOLVE main_model Using MCP From line 419
+B 213 Range Statistics    SOLVE main_model Using MCP From line 419
+B 224 Model Statistics    SOLVE main_model Using MCP From line 419
+B 243 Solution Report     SOLVE main_model Using MCP From line 419
+B 298 Range Statistics    SOLVE main_model Using MCP From line 419
+B 309 Model Statistics    SOLVE main_model Using MCP From line 419
+B 328 Solution Report     SOLVE main_model Using MCP From line 419
+B 383 Range Statistics    SOLVE main_model Using MCP From line 419
+B 394 Model Statistics    SOLVE main_model Using MCP From line 419
+B 413 Solution Report     SOLVE main_model Using MCP From line 419
+B 468 Range Statistics    SOLVE main_model Using MCP From line 419
+B 479 Model Statistics    SOLVE main_model Using MCP From line 419
+B 498 Solution Report     SOLVE main_model Using MCP From line 419
+B 553 E x e c u t i o n
+I 555 "The WALRAS..."
+I 556 D

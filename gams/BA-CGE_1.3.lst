@@ -1,0 +1,543 @@
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 1
+Basic CGE Model 1.3
+C o m p i l a t i o n
+
+
+   2   
+   3  *----------------------------------------------------------------------------------------------------
+   4  *This is a simple single-region, single-sector, two-factor, open-economy CGE model.
+   5  *The firm maximizes its profit subjected to constant return-to-scale CES technology.
+   6  *The households allocate a fixed proportion of its income as savings, which turn to investments,
+   7  *and then maximize its utility (following a log function) subjected to the budget constraint.
+   8  *The government levies a production tax, a direct tax, and an import tariff, and uses its income to purchase.
+   9  *It may operate with a constant (under FixGovSave) or flexible (under FixGovCons) fiscal surplus.
+  10  *Imports are specified using Armington assumption, while exports follow the CET function.
+  11  *In total, there are seven markets: five goods markets (domestic output, exports, domestic sold,
+  12  *imports, armington composite) and two factor markets.
+  13  *----------------------------------------------------------------------------------------------------
+  14   
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 2
+Basic CGE Model 1.3
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_1.3.gms
+     2       48 IF EXIST       1      48  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
+     3       51 GDXIN          1      51  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  45.2.0 e4d2ee31 WEX-WEI
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 3
+Basic CGE Model 1.3
+E x e c u t i o n
+
+
+----    273 VARIABLE PP.L                  =        0.912  Agents price of activity unit output (pre-tax)
+            VARIABLE PM.L                  =        1.016  Basic price of imported goods
+            VARIABLE QL.L                  =       52.957  Quantities of labor demand by activity
+            VARIABLE QK.L                  =       39.728  Quantities of capital demand by activity
+            VARIABLE QA.L                  =      101.642  Quantities of activity total output
+            VARIABLE QD.L                  =       82.850  Quantities of domestic produced & sold goods
+            VARIABLE QE.L                  =       18.793  Quantities of domestic produced & exported goods
+            VARIABLE QM.L                  =       16.009  Quantities of demand for imported goods
+            VARIABLE QC.L                  =       99.116  Quantities of demand for composite goods
+            VARIABLE QP.L                  =       38.401  Quantities of households consumption
+            VARIABLE QG.L                  =       17.363  Quantities of government purchase
+            VARIABLE QI.L                  =       43.352  Quantities of investment consumption
+            VARIABLE TXP.L                 =        0.097  Tax rate on production
+            VARIABLE TXM.L                 =        0.016  Tax rate on imports
+            VARIABLE TXH.L                 =        0.012  Tax rate on households income
+            VARIABLE BETS.L                =        0.580  Households saving propensity
+            VARIABLE YPC.L                 =       38.401  Values of households consumption
+            VARIABLE YPS.L                 =       53.127  Values of households savings
+            VARIABLE YGC.L                 =       17.363  Values of government purchase
+            VARIABLE YGS.L                 =       -6.991  Values of goveenment savings
+            VARIABLE YP.L                  =       91.527  Values of households income
+            VARIABLE YG.L                  =       10.371  Values of government income
+            VARIABLE UP.L                  =        1.000  Values of households utility
+            VARIABLE YFS.L                 =       -2.783  Values of foreign savings
+            VARIABLE YI.L                  =       43.352  Values of investment expenditures
+
+----    295 PARAMETER alpl                 =        0.571  CES dual share parameter of labor in production function
+            PARAMETER alpk                 =        0.429  CES dual share parameter of capital in production function
+            PARAMETER aa                   =        2.171  CES aggregate parameter in production function
+            PARAMETER gamd                 =        0.815  CET dual share parameter of domestic goods in domestic supply allocation
+            PARAMETER game                 =        0.185  CET dual share parameter of exported goods in domestic supply allocation
+            PARAMETER pwe                  =        1.000  Fixed world price of exported goods
+            PARAMETER pwm                  =        1.000  Fixed world price of imported goods
+            PARAMETER alpd                 =        0.836  CES dual share parameter of domestic goods in armington nest
+            PARAMETER alpm                 =        0.163  CES dual share parameter of imported goods in armington nest
+            PARAMETER au                   =        0.022  CES aggregate parameter in households utility
+            PARAMETER lb                   =       52.957  Scale parameter in labor factor supply
+            PARAMETER kb                   =       39.728  Scale parameter in capital factor supply
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 4
+Basic CGE Model 1.3
+Range Statistics    SOLVE main_model Using MCP From line 319
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.000E+00, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA]
+Matrix    [min, max] : [ 1.093E-02, 1.657E+02]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 5
+Basic CGE Model 1.3
+Model Statistics    SOLVE main_model Using MCP From line 319
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          26     SINGLE EQUATIONS           26
+BLOCKS OF VARIABLES          26     SINGLE VARIABLES           26
+NON ZERO ELEMENTS            75     NON LINEAR N-Z             35
+CODE LENGTH                 131     CONSTANT POOL              30
+
+
+GENERATION TIME      =        0.015 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 6
+Basic CGE Model 1.3
+Solution Report     SOLVE main_model Using MCP From line 319
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  319
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+ EVALUATION ERRORS              0             0
+26 row/cols, 75 non-zeros, 11.09% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA)
+Maximum of F. . . . . . . . . .  5.8044e-06 eqn: (YPS_eq)
+Maximum of Grad F . . . . . . .  1.6570e+02 eqn: (QD_eq)
+                                            var: (PA)
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  3.3321e+02 eqn: (QD_eq)
+Minimum Row Norm. . . . . . . .  4.1794e-01 eqn: (PC_eq)
+Maximum Column Norm . . . . . .  2.0999e+02 var: (PD)
+Minimum Column Norm . . . . . .  1.0000e+00 var: (D)
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  2.5580e-13 eqn: (QD_eq)
+Inf-Norm of Normal Map. . . . .  2.5580e-13 eqn: (QD_eq)
+Inf-Norm of Minimum Map . . . .  2.5580e-13 eqn: (QD_eq)
+Inf-Norm of Fischer Function. .  2.5580e-13 eqn: (QD_eq)
+Inf-Norm of Grad Fischer Fcn. .  4.4511e-11 eqn: (PA_eq)
+Two-Norm of Grad Fischer Fcn. .  6.1460e-11
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA)
+Maximum of F. . . . . . . . . .  2.5580e-13 eqn: (QD_eq)
+Maximum of Grad F . . . . . . .  1.6570e+02 eqn: (QD_eq)
+                                            var: (PD)
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU QL_eq               .              .              .            52.9566      
+---- EQU QK_eq               .       7.105427E-15          .            39.7276      
+---- EQU PP_eq               .       -2.22045E-16          .             0.9119      
+---- EQU PA_eq               .              .              .             1.0000      
+---- EQU QA_eq               .       3.552714E-15          .           101.6422      
+---- EQU QD_eq               .       -2.55795E-13          .            82.8496      
+---- EQU QE_eq               .       -5.68434E-14          .            18.7926      
+---- EQU PE_eq              1.0000         1.0000         1.0000         1.0000      
+---- EQU PM_eq              1.0160         1.0160         1.0160         1.0160      
+---- EQU PD_eq               .              .              .             1.0000      
+---- EQU QM_eq               .              .              .            16.0095      
+---- EQU PC_eq             -1.0000        -1.0000        -1.0000        43.3521      
+---- EQU QC_eq             17.3625        17.3625        17.3625        99.1155      
+---- EQU QP_eq               .              .              .            38.4008      
+---- EQU QG_eq            -17.3625       -17.3625       -17.3625        17.3625      
+---- EQU QI_eq               .              .              .            43.3521      
+---- EQU YPC_eq              .       7.105427E-15          .            38.4008      
+---- EQU YPS_eq              .              .              .            53.1265      
+---- EQU YGC_eq              .              .              .            -6.9913      
+---- EQU YP_eq               .              .              .            91.5273      
+---- EQU YG_eq               .              .              .            10.3713      
+---- EQU UP_eq               .              .              .             1.0000      
+---- EQU PW_eq             52.9566        52.9566        52.9566         1.0000      
+---- EQU PR_eq             39.7276        39.7276        39.7276         1.0000      
+---- EQU YFS_eq              .              .              .            -2.7831      
+---- EQU YI_eq               .       -1.77636E-15          .       -6.99327E-13      
+
+  QL_eq  Conditional labor demand function
+  QK_eq  Conditional capital demand function
+  PP_eq  Goods supply function
+  PA_eq  Connection between agents and basic price (through production tax)
+  QA_eq  Demand for domestic produced goods (domestic sold & export)
+  QD_eq  Supply of domestic produced & sold goods
+  QE_eq  Supply of domestic produced & exported goods
+  PE_eq  Determination of export price (from world price)
+  PM_eq  Determination of import price (from world price)
+  PD_eq  Demand for domestic produced & sold goods
+  QM_eq  Demand for imported goods
+  PC_eq  Supply of armington composite goods
+  QC_eq  Demand for armington composite goods
+  QP_eq  Goods demand function of households
+  QG_eq  Goods demand function of government
+  QI_eq  Goods demand function of investment
+  YPC_eq  Calculation of households total consumption
+  YPS_eq  Calculation of households total savings
+  YGC_eq  Calculation of governments total expenditure
+  YP_eq  Sources of households income
+  YG_eq  Sources of governments income
+  UP_eq  Households utility function
+  PW_eq  Labor supply function
+  PR_eq  Capital supply function
+  YFS_eq  Calculation of net foreign savings
+  YI_eq  Savings-Investments balance
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR QL                -INF           52.9566        +INF             .          
+---- VAR QK                -INF           39.7276        +INF      7.105427E-15      
+---- VAR PP                -INF            0.9119        +INF      -2.22045E-16      
+---- VAR PA                -INF            1.0000        +INF             .          
+---- VAR QA                -INF          101.6422        +INF      3.552714E-15      
+---- VAR QD                -INF           82.8496        +INF      -2.55795E-13      
+---- VAR QE                -INF           18.7926        +INF      -5.68434E-14      
+---- VAR PE                -INF            1.0000        +INF             .          
+---- VAR PM                -INF            1.0160        +INF             .          
+---- VAR PD                -INF            1.0000        +INF             .          
+---- VAR QM                -INF           16.0095        +INF             .          
+---- VAR QC                -INF           99.1155        +INF             .          
+---- VAR QP                -INF           38.4008        +INF             .          
+---- VAR QI                -INF           43.3521        +INF      -4.44089E-16      
+---- VAR YPC               -INF           38.4008        +INF      7.105427E-15      
+---- VAR YPS               -INF           53.1265        +INF             .          
+---- VAR YGC               -INF           17.3625        +INF             .          
+---- VAR YGS               -INF           -6.9913        +INF             .          
+---- VAR YP                -INF           91.5273        +INF             .          
+---- VAR YG                -INF           10.3713        +INF             .          
+---- VAR UP                -INF            1.0000        +INF             .          
+---- VAR PW                -INF            1.0000        +INF             .          
+---- VAR PR                -INF            1.0000        +INF             .          
+---- VAR YFS               -INF           -2.7831        +INF             .          
+---- VAR YI                -INF           43.3521        +INF             .          
+---- VAR D                 -INF      -6.99327E-13        +INF      -1.77636E-15      
+
+  QL  Quantities of labor demand by activity
+  QK  Quantities of capital demand by activity
+  PP  Agents price of activity unit output (pre-tax)
+  PA  Basic price of activity unit output (after-tax)
+  QA  Quantities of activity total output
+  QD  Quantities of domestic produced & sold goods
+  QE  Quantities of domestic produced & exported goods
+  PE  Basic price of domestic produced & exported goods
+  PM  Basic price of imported goods
+  PD  Basic price of domestic produced & sold goods
+  QM  Quantities of demand for imported goods
+  QC  Quantities of demand for composite goods
+  QP  Quantities of households consumption
+  QI  Quantities of investment consumption
+  YPC  Values of households consumption
+  YPS  Values of households savings
+  YGC  Values of government purchase
+  YGS  Values of goveenment savings
+  YP  Values of households income
+  YG  Values of government income
+  UP  Values of households utility
+  PW  Price of labor factor (wages)
+  PR  Price of capital factor (rents)
+  YFS  Values of foreign savings
+  YI  Values of investment expenditures
+  D  Dummy variable for WALRAS test
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 7
+Basic CGE Model 1.3
+Range Statistics    SOLVE main_model Using MCP From line 373
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.000E+00, 5.296E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA]
+Matrix    [min, max] : [ 1.093E-02, 1.657E+02]
+
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 8
+Basic CGE Model 1.3
+Model Statistics    SOLVE main_model Using MCP From line 373
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          26     SINGLE EQUATIONS           26
+BLOCKS OF VARIABLES          26     SINGLE VARIABLES           26
+NON ZERO ELEMENTS            74     NON LINEAR N-Z             35
+CODE LENGTH                 131     CONSTANT POOL              30
+
+
+GENERATION TIME      =        0.015 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 9
+Basic CGE Model 1.3
+Solution Report     SOLVE main_model Using MCP From line 373
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   main_model          
+     TYPE    MCP                 
+     SOLVER  PATH                FROM LINE  373
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         1    2147483647
+ EVALUATION ERRORS              0             0
+26 row/cols, 74 non-zeros, 10.95% dense.
+
+Path 5.0.07 (Mon Oct 30 08:41:47 2023)
+Written by Todd Munson, Steven Dirkse, Youngdae Kim, and Michael Ferris
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA)
+Maximum of F. . . . . . . . . .  2.5643e-01 eqn: (YG_eq)
+Maximum of Grad F . . . . . . .  1.6570e+02 eqn: (QD_eq)
+                                            var: (PD)
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  3.3321e+02 eqn: (QD_eq)
+Minimum Row Norm. . . . . . . .  4.1794e-01 eqn: (PC_eq)
+Maximum Column Norm . . . . . .  2.0999e+02 var: (PD)
+Minimum Column Norm . . . . . .  1.0000e+00 var: (D)
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  6.5299e-10 eqn: (QE_eq)
+Inf-Norm of Normal Map. . . . .  6.5299e-10 eqn: (QE_eq)
+Inf-Norm of Minimum Map . . . .  6.5299e-10 eqn: (QE_eq)
+Inf-Norm of Fischer Function. .  6.5299e-10 eqn: (QE_eq)
+Inf-Norm of Grad Fischer Fcn. .  1.3233e-07 eqn: (PA_eq)
+Two-Norm of Grad Fischer Fcn. .  1.5944e-07
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.0164e+02 var: (QA)
+Maximum of F. . . . . . . . . .  6.5299e-10 eqn: (QE_eq)
+Maximum of Grad F . . . . . . .  1.6547e+02 eqn: (QD_eq)
+                                            var: (PA)
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU QL_eq               .       -7.10543E-15          .            52.9566      
+---- EQU QK_eq               .       7.105427E-15          .            39.7276      
+---- EQU PP_eq               .       -6.66134E-16          .             0.9142      
+---- EQU PA_eq               .              .              .             1.0025      
+---- EQU QA_eq               .       2.089506E-11          .           101.6422      
+---- EQU QD_eq               .       -6.52932E-10          .            82.9444      
+---- EQU QE_eq               .       -6.52992E-10          .            18.6976      
+---- EQU PE_eq              1.0000         1.0000         1.0000         1.0000      
+---- EQU PM_eq              1.0000         1.0000         1.0000         1.0000      
+---- EQU PD_eq               .       -4.59764E-10          .             1.0031      
+---- EQU QM_eq               .              .              .            16.1808      
+---- EQU PC_eq             -1.0000        -1.0000        -1.0000        43.5223      
+---- EQU QC_eq             17.3625        17.3625        17.3625        99.3831      
+---- EQU QP_eq               .              .              .            38.4982      
+---- EQU QG_eq            -17.3625       -17.3625       -17.3625        17.3625      
+---- EQU QI_eq               .              .              .            43.5223      
+---- EQU YPC_eq              .              .              .            38.4982      
+---- EQU YPS_eq              .              .              .            53.2613      
+---- EQU YGC_eq              .              .              .            -7.2220      
+---- EQU YP_eq               .              .              .            91.7595      
+---- EQU YG_eq               .       1.776357E-15          .            10.1405      
+---- EQU UP_eq               .              .              .             1.0025      
+---- EQU PW_eq             52.9566        52.9566        52.9566         1.0025      
+---- EQU PR_eq             39.7276        39.7276        39.7276         1.0025      
+---- EQU YFS_eq              .              .              .            -2.5169      
+---- EQU YI_eq               .              .              .       -2.899604E-9      
+
+  QL_eq  Conditional labor demand function
+  QK_eq  Conditional capital demand function
+  PP_eq  Goods supply function
+  PA_eq  Connection between agents and basic price (through production tax)
+  QA_eq  Demand for domestic produced goods (domestic sold & export)
+  QD_eq  Supply of domestic produced & sold goods
+  QE_eq  Supply of domestic produced & exported goods
+  PE_eq  Determination of export price (from world price)
+  PM_eq  Determination of import price (from world price)
+  PD_eq  Demand for domestic produced & sold goods
+  QM_eq  Demand for imported goods
+  PC_eq  Supply of armington composite goods
+  QC_eq  Demand for armington composite goods
+  QP_eq  Goods demand function of households
+  QG_eq  Goods demand function of government
+  QI_eq  Goods demand function of investment
+  YPC_eq  Calculation of households total consumption
+  YPS_eq  Calculation of households total savings
+  YGC_eq  Calculation of governments total expenditure
+  YP_eq  Sources of households income
+  YG_eq  Sources of governments income
+  UP_eq  Households utility function
+  PW_eq  Labor supply function
+  PR_eq  Capital supply function
+  YFS_eq  Calculation of net foreign savings
+  YI_eq  Savings-Investments balance
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR QL                -INF           52.9566        +INF      -7.10543E-15      
+---- VAR QK                -INF           39.7276        +INF      7.105427E-15      
+---- VAR PP                -INF            0.9142        +INF      -6.66134E-16      
+---- VAR PA                -INF            1.0025        +INF             .          
+---- VAR QA                -INF          101.6422        +INF      2.089506E-11      
+---- VAR QD                -INF           82.9444        +INF      -6.52932E-10      
+---- VAR QE                -INF           18.6976        +INF      -6.52992E-10      
+---- VAR PE                -INF            1.0000        +INF             .          
+---- VAR PM                -INF            1.0000        +INF             .          
+---- VAR PD                -INF            1.0031        +INF      -4.59764E-10      
+---- VAR QM                -INF           16.1808        +INF             .          
+---- VAR QC                -INF           99.3831        +INF             .          
+---- VAR QP                -INF           38.4982        +INF             .          
+---- VAR QI                -INF           43.5223        +INF      6.059597E-13      
+---- VAR YPC               -INF           38.4982        +INF             .          
+---- VAR YPS               -INF           53.2613        +INF             .          
+---- VAR YGC               -INF           17.3625        +INF             .          
+---- VAR YGS               -INF           -7.2220        +INF             .          
+---- VAR YP                -INF           91.7595        +INF             .          
+---- VAR YG                -INF           10.1405        +INF      1.776357E-15      
+---- VAR UP                -INF            1.0025        +INF             .          
+---- VAR PW                -INF            1.0025        +INF             .          
+---- VAR PR                -INF            1.0025        +INF             .          
+---- VAR YFS               -INF           -2.5169        +INF             .          
+---- VAR YI                -INF           43.5223        +INF             .          
+---- VAR D                 -INF      -2.899604E-9        +INF             .          
+
+  QL  Quantities of labor demand by activity
+  QK  Quantities of capital demand by activity
+  PP  Agents price of activity unit output (pre-tax)
+  PA  Basic price of activity unit output (after-tax)
+  QA  Quantities of activity total output
+  QD  Quantities of domestic produced & sold goods
+  QE  Quantities of domestic produced & exported goods
+  PE  Basic price of domestic produced & exported goods
+  PM  Basic price of imported goods
+  PD  Basic price of domestic produced & sold goods
+  QM  Quantities of demand for imported goods
+  QC  Quantities of demand for composite goods
+  QP  Quantities of households consumption
+  QI  Quantities of investment consumption
+  YPC  Values of households consumption
+  YPS  Values of households savings
+  YGC  Values of government purchase
+  YGS  Values of goveenment savings
+  YP  Values of households income
+  YG  Values of government income
+  UP  Values of households utility
+  PW  Price of labor factor (wages)
+  PR  Price of capital factor (rents)
+  YFS  Values of foreign savings
+  YI  Values of investment expenditures
+  D  Dummy variable for WALRAS test
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0  REDEFINED
+                             0     ERRORS
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 12/30/25 10:49:27 Page 10
+Basic CGE Model 1.3
+E x e c u t i o n
+
+
+----    421 PARAMETER ppck                 =        0.254  
+            PARAMETER pack                 =        0.254  
+            PARAMETER peck                 =        0.000  
+            PARAMETER pmck                 =       -1.576  
+            PARAMETER pdck                 =        0.311  
+            PARAMETER pcck                 =        0.000  
+            PARAMETER pwck                 =        0.254  
+            PARAMETER prck                 =        0.254  
+
+----    423 PARAMETER qlck                 =        0.000  
+            PARAMETER qkck                 =        0.000  
+            PARAMETER txpck                =        0.000  
+            PARAMETER qack                 =  2.79625E-14  
+            PARAMETER qdck                 =        0.114  
+            PARAMETER qeck                 =       -0.505  
+            PARAMETER txmck                =     -100.000  
+            PARAMETER qmck                 =        1.070  
+            PARAMETER qcck                 =        0.270  
+            PARAMETER qpck                 =        0.254  
+            PARAMETER qgck                 =        0.000  
+            PARAMETER qick                 =        0.393  
+            PARAMETER txhck                =        0.000  
+            PARAMETER betsck               =        0.000  
+            PARAMETER ypcck                =        0.254  
+            PARAMETER ypsck                =        0.254  
+            PARAMETER ygcck                =        0.000  
+            PARAMETER ygsck                =        3.301  
+            PARAMETER ypck                 =        0.254  
+            PARAMETER ygck                 =       -2.225  
+            PARAMETER upck                 =        0.254  
+            PARAMETER yfsck                =       -9.566  
+            PARAMETER yick                 =        0.393  
+
+----    430 VARIABLE PP.L                  =        0.914  Agents price of activity unit output (pre-tax)
+            VARIABLE PA.L                  =        1.003  Basic price of activity unit output (after-tax)
+            VARIABLE PE.L                  =        1.000  Basic price of domestic produced & exported goods
+            VARIABLE PM.L                  =        1.000  Basic price of imported goods
+            VARIABLE PD.L                  =        1.003  Basic price of domestic produced & sold goods
+            VARIABLE PC.L                  =        1.000  Basic price of armington composite goods
+            VARIABLE PW.L                  =        1.003  Price of labor factor (wages)
+            VARIABLE PR.L                  =        1.003  Price of capital factor (rents)
+
+----    432 VARIABLE QL.L                  =       52.957  Quantities of labor demand by activity
+            VARIABLE QK.L                  =       39.728  Quantities of capital demand by activity
+            VARIABLE TXP.L                 =        0.097  Tax rate on production
+            VARIABLE QA.L                  =      101.642  Quantities of activity total output
+            VARIABLE QD.L                  =       82.944  Quantities of domestic produced & sold goods
+            VARIABLE QE.L                  =       18.698  Quantities of domestic produced & exported goods
+            VARIABLE TXM.L                 =        0.000  Tax rate on imports
+            VARIABLE QM.L                  =       16.181  Quantities of demand for imported goods
+            VARIABLE QC.L                  =       99.383  Quantities of demand for composite goods
+            VARIABLE QP.L                  =       38.498  Quantities of households consumption
+            VARIABLE QG.L                  =       17.363  Quantities of government purchase
+            VARIABLE QI.L                  =       43.522  Quantities of investment consumption
+            VARIABLE TXH.L                 =        0.012  Tax rate on households income
+            VARIABLE BETS.L                =        0.580  Households saving propensity
+            VARIABLE YPC.L                 =       38.498  Values of households consumption
+            VARIABLE YPS.L                 =       53.261  Values of households savings
+            VARIABLE YGC.L                 =       17.363  Values of government purchase
+            VARIABLE YGS.L                 =       -7.222  Values of goveenment savings
+            VARIABLE YP.L                  =       91.759  Values of households income
+            VARIABLE YG.L                  =       10.141  Values of government income
+            VARIABLE UP.L                  =        1.003  Values of households utility
+            VARIABLE YFS.L                 =       -2.517  Values of foreign savings
+            VARIABLE YI.L                  =       43.522  Values of investment expenditures
+            VARIABLE D.L                   =  -2.89960E-9  Dummy variable for WALRAS test
+
+
+EXECUTION TIME       =        0.219 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+
+
+USER: Medium MUD - 10 User License                   S230614|0002AO-WIN
+      Tianjin University of Technology, School of Management    DC16610
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_1.3.gms
+Output     D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_1.3.lst
