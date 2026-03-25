@@ -1,4 +1,5 @@
---- Job BA-CGE_2.0.gms Start 03/06/26 22:50:28 45.2.0 e4d2ee31 WEX-WEI x86 64bit/MS Windows
+
+--- Job BA-CGE_2.0.gms Start 03/06/26 22:50:49 45.2.0 e4d2ee31 WEX-WEI x86 64bit/MS Windows
 --- Applying:
     D:\GAMS\45\gmsprmNT.txt
 --- GAMS Parameters defined
@@ -24,13 +25,13 @@ GAMS 45.2.0   Copyright (C) 1987-2023 GAMS Development. All rights reserved
 --- GDXin=D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
 --- GDX File ($gdxIn) D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
 --- BA-CGE_2.0.gms(572) 3 Mb
---- Starting execution: elapsed 0:00:00.023
---- BA-CGE_2.0.gms(72) 4 Mb
+--- Starting execution: elapsed 0:00:00.011
+--- BA-CGE_2.0.gms(70) 4 Mb
 --- GDXin=D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
 --- GDX File (execute_load) D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
---- BA-CGE_2.0.gms(411) 4 Mb
+--- BA-CGE_2.0.gms(397) 4 Mb
 --- Generating MCP model main_model
---- BA-CGE_2.0.gms(433) 6 Mb
+--- BA-CGE_2.0.gms(419) 6 Mb
 --- LOOPS tsim = base
 ---   31 rows  31 columns  98 non-zeroes
 ---   163 nl-code  56 nl-non-zeroes
@@ -38,8 +39,8 @@ GAMS 45.2.0   Copyright (C) 1987-2023 GAMS Development. All rights reserved
 --- RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
---- BA-CGE_2.0.gms(433) 4 Mb
---- Executing PATH (Solvelink=2): elapsed 0:00:00.034
+--- BA-CGE_2.0.gms(419) 4 Mb
+--- Executing PATH (Solvelink=2): elapsed 0:00:00.019
 Reading dictionary...
 Reading row data...
 Evaluating functions...
@@ -106,10 +107,10 @@ Residual. . . . . . . . 2.050666e-13
 Postsolved residual: 2.0507e-13
 
 --- Reading solution for model main_model
---- Executing after solve: elapsed 0:00:00.121
---- BA-CGE_2.0.gms(411) 4 Mb
+--- Executing after solve: elapsed 0:00:00.078
+--- BA-CGE_2.0.gms(397) 4 Mb
 --- Generating MCP model main_model
---- BA-CGE_2.0.gms(433) 6 Mb
+--- BA-CGE_2.0.gms(419) 6 Mb
 --- LOOPS tsim = homo
 ---   31 rows  31 columns  98 non-zeroes
 ---   163 nl-code  56 nl-non-zeroes
@@ -117,8 +118,8 @@ Postsolved residual: 2.0507e-13
 --- RHS       [min, max] : [ 1.476E+00, 5.296E+01] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.248E-02, 1.243E+02]
---- BA-CGE_2.0.gms(433) 4 Mb
---- Executing PATH (Solvelink=2): elapsed 0:00:00.121
+--- BA-CGE_2.0.gms(419) 4 Mb
+--- Executing PATH (Solvelink=2): elapsed 0:00:00.082
 Reading dictionary...
 Reading row data...
 Evaluating functions...
@@ -181,15 +182,15 @@ Gradient Steps. . . . . 0
 Function Evaluations. . 3
 Gradient Evaluations. . 3
 Basis Time. . . . . . . 0.000000
-Total Time. . . . . . . 0.000000
+Total Time. . . . . . . 0.016000
 Residual. . . . . . . . 4.809611e-14
 Postsolved residual: 4.8096e-14
 
 --- Reading solution for model main_model
---- Executing after solve: elapsed 0:00:00.183
---- BA-CGE_2.0.gms(411) 4 Mb
+--- Executing after solve: elapsed 0:00:00.159
+--- BA-CGE_2.0.gms(397) 4 Mb
 --- Generating MCP model main_model
---- BA-CGE_2.0.gms(433) 6 Mb
+--- BA-CGE_2.0.gms(419) 6 Mb
 --- LOOPS tsim = labup
 ---   31 rows  31 columns  98 non-zeroes
 ---   164 nl-code  56 nl-non-zeroes
@@ -197,8 +198,8 @@ Postsolved residual: 4.8096e-14
 --- RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
---- BA-CGE_2.0.gms(433) 4 Mb
---- Executing PATH (Solvelink=2): elapsed 0:00:00.193
+--- BA-CGE_2.0.gms(419) 4 Mb
+--- Executing PATH (Solvelink=2): elapsed 0:00:00.164
 Reading dictionary...
 Reading row data...
 Evaluating functions...
@@ -262,16 +263,16 @@ Crash Iterations. . . . 1
 Gradient Steps. . . . . 0
 Function Evaluations. . 5
 Gradient Evaluations. . 5
-Basis Time. . . . . . . 0.000000
-Total Time. . . . . . . 0.000000
+Basis Time. . . . . . . 0.016000
+Total Time. . . . . . . 0.016000
 Residual. . . . . . . . 1.736295e-12
 Postsolved residual: 1.7363e-12
 
 --- Reading solution for model main_model
---- Executing after solve: elapsed 0:00:00.247
---- BA-CGE_2.0.gms(411) 4 Mb
+--- Executing after solve: elapsed 0:00:00.253
+--- BA-CGE_2.0.gms(397) 4 Mb
 --- Generating MCP model main_model
---- BA-CGE_2.0.gms(433) 6 Mb
+--- BA-CGE_2.0.gms(419) 6 Mb
 --- LOOPS tsim = capup
 ---   31 rows  31 columns  98 non-zeroes
 ---   164 nl-code  56 nl-non-zeroes
@@ -279,8 +280,8 @@ Postsolved residual: 1.7363e-12
 --- RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
---- BA-CGE_2.0.gms(433) 4 Mb
---- Executing PATH (Solvelink=2): elapsed 0:00:00.256
+--- BA-CGE_2.0.gms(419) 4 Mb
+--- Executing PATH (Solvelink=2): elapsed 0:00:00.257
 Reading dictionary...
 Reading row data...
 Evaluating functions...
@@ -344,15 +345,15 @@ Gradient Steps. . . . . 0
 Function Evaluations. . 4
 Gradient Evaluations. . 4
 Basis Time. . . . . . . 0.000000
-Total Time. . . . . . . 0.016000
+Total Time. . . . . . . 0.000000
 Residual. . . . . . . . 3.677826e-07
 Postsolved residual: 3.6778e-07
 
 --- Reading solution for model main_model
---- Executing after solve: elapsed 0:00:00.338
---- BA-CGE_2.0.gms(411) 4 Mb
+--- Executing after solve: elapsed 0:00:00.331
+--- BA-CGE_2.0.gms(397) 4 Mb
 --- Generating MCP model main_model
---- BA-CGE_2.0.gms(433) 6 Mb
+--- BA-CGE_2.0.gms(419) 6 Mb
 --- LOOPS tsim = totup
 ---   31 rows  31 columns  98 non-zeroes
 ---   165 nl-code  56 nl-non-zeroes
@@ -360,8 +361,8 @@ Postsolved residual: 3.6778e-07
 --- RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
---- BA-CGE_2.0.gms(433) 4 Mb
---- Executing PATH (Solvelink=2): elapsed 0:00:00.343
+--- BA-CGE_2.0.gms(419) 4 Mb
+--- Executing PATH (Solvelink=2): elapsed 0:00:00.336
 Reading dictionary...
 Reading row data...
 Evaluating functions...
@@ -430,10 +431,10 @@ Residual. . . . . . . . 6.882285e-07
 Postsolved residual: 6.8823e-07
 
 --- Reading solution for model main_model
---- Executing after solve: elapsed 0:00:00.417
---- BA-CGE_2.0.gms(411) 4 Mb
+--- Executing after solve: elapsed 0:00:00.407
+--- BA-CGE_2.0.gms(397) 4 Mb
 --- Generating MCP model main_model
---- BA-CGE_2.0.gms(433) 6 Mb
+--- BA-CGE_2.0.gms(419) 6 Mb
 --- LOOPS tsim = notrf
 ---   31 rows  31 columns  96 non-zeroes
 ---   160 nl-code  54 nl-non-zeroes
@@ -441,8 +442,8 @@ Postsolved residual: 6.8823e-07
 --- RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
---- BA-CGE_2.0.gms(433) 4 Mb
---- Executing PATH (Solvelink=2): elapsed 0:00:00.436
+--- BA-CGE_2.0.gms(419) 4 Mb
+--- Executing PATH (Solvelink=2): elapsed 0:00:00.412
 Reading dictionary...
 Reading row data...
 Evaluating functions...
@@ -510,7 +511,7 @@ Residual. . . . . . . . 1.935571e-08
 Postsolved residual: 1.9356e-08
 
 --- Reading solution for model main_model
---- Executing after solve: elapsed 0:00:00.504
---- BA-CGE_2.0.gms(539) 4 Mb
+--- Executing after solve: elapsed 0:00:00.469
+--- BA-CGE_2.0.gms(500) 4 Mb
 *** Status: Normal completion
---- Job BA-CGE_2.0.gms Stop 03/06/26 22:50:29 elapsed 0:00:00.504
+--- Job BA-CGE_2.0.gms Stop 03/06/26 22:50:49 elapsed 0:00:00.470

@@ -1,4 +1,4 @@
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 1
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 1
 Basic CGE Model 2.0
 C o m p i l a t i o n
 
@@ -17,7 +17,7 @@ C o m p i l a t i o n
   13  *imports, composite goods) & two factor markets.
   14  *----------------------------------------------------------------------------------------------------
   15   
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 2
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 2
 Basic CGE Model 2.0
 Include File Summary
 
@@ -25,22 +25,24 @@ Include File Summary
    SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
 
      1        1 INPUT          0       0  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\gams\BA-CGE_2.0.gms
-     2       49 GDXIN          1      49  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
+     2       44 IF EXIST       1      44  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
+     3       47 GDXIN          1      47  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
+     4       65 IF EXIST       1      82  D:\Leo Yan\OneDrive\Academic\CGE Projects\Basic CGE model\data_input\sam_2.0.gdx
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 MB  45.2.0 e4d2ee31 WEX-WEI
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 3
+COMPILATION TIME     =        0.016 SECONDS      3 MB  45.2.0 e4d2ee31 WEX-WEI
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 3
 Basic CGE Model 2.0
 E x e c u t i o n
 
 
-----     43 SET t  time frame
+----     41 SET t  time frame
 
 base ,    homo ,    labup,    capup,    totup,    notrf
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 4
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 4
 Basic CGE Model 2.0
-Range Statistics    SOLVE main_model Using MCP From line 419
+Range Statistics    SOLVE main_model Using MCP From line 417
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -49,9 +51,9 @@ RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 5
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 5
 Basic CGE Model 2.0
-Model Statistics    SOLVE main_model Using MCP From line 419
+Model Statistics    SOLVE main_model Using MCP From line 417
 
 
 LOOPS                                 tsim   base
@@ -65,24 +67,24 @@ NON ZERO ELEMENTS            98     NON LINEAR N-Z             56
 CODE LENGTH                 163     CONSTANT POOL              28
 
 
-GENERATION TIME      =        0.016 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+GENERATION TIME      =        0.015 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
                L O O P S               tsim base
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 6
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 6
 Basic CGE Model 2.0
-Solution Report     SOLVE main_model Using MCP From line 419
+Solution Report     SOLVE main_model Using MCP From line 417
 
 
                S O L V E      S U M M A R Y
 
      MODEL   main_model          
      TYPE    MCP                 
-     SOLVER  PATH                FROM LINE  419
+     SOLVER  PATH                FROM LINE  417
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
 
- RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
  ITERATION COUNT, LIMIT         0    2147483647
  EVALUATION ERRORS              0             0
 31 row/cols, 98 non-zeros, 10.20% dense.
@@ -123,9 +125,9 @@ Maximum of Grad F . . . . . . .  8.2850e+01 eqn: (QD_eq(base))
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 7
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 7
 Basic CGE Model 2.0
-Range Statistics    SOLVE main_model Using MCP From line 419
+Range Statistics    SOLVE main_model Using MCP From line 417
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -134,9 +136,9 @@ RHS       [min, max] : [ 1.476E+00, 5.296E+01] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.248E-02, 1.243E+02]
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 8
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 8
 Basic CGE Model 2.0
-Model Statistics    SOLVE main_model Using MCP From line 419
+Model Statistics    SOLVE main_model Using MCP From line 417
 
 
 LOOPS                                 tsim   homo
@@ -150,19 +152,19 @@ NON ZERO ELEMENTS            98     NON LINEAR N-Z             56
 CODE LENGTH                 163     CONSTANT POOL              29
 
 
-GENERATION TIME      =        0.015 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
                L O O P S               tsim homo
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 9
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 9
 Basic CGE Model 2.0
-Solution Report     SOLVE main_model Using MCP From line 419
+Solution Report     SOLVE main_model Using MCP From line 417
 
 
                S O L V E      S U M M A R Y
 
      MODEL   main_model          
      TYPE    MCP                 
-     SOLVER  PATH                FROM LINE  419
+     SOLVER  PATH                FROM LINE  417
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
@@ -208,9 +210,9 @@ Maximum of Grad F . . . . . . .  5.5233e+01 eqn: (QD_eq(homo))
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 10
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 10
 Basic CGE Model 2.0
-Range Statistics    SOLVE main_model Using MCP From line 419
+Range Statistics    SOLVE main_model Using MCP From line 417
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -219,9 +221,9 @@ RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 11
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 11
 Basic CGE Model 2.0
-Model Statistics    SOLVE main_model Using MCP From line 419
+Model Statistics    SOLVE main_model Using MCP From line 417
 
 
 LOOPS                                 tsim   labup
@@ -238,21 +240,21 @@ CODE LENGTH                 164     CONSTANT POOL              30
 GENERATION TIME      =        0.000 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
                L O O P S               tsim labup
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 12
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 12
 Basic CGE Model 2.0
-Solution Report     SOLVE main_model Using MCP From line 419
+Solution Report     SOLVE main_model Using MCP From line 417
 
 
                S O L V E      S U M M A R Y
 
      MODEL   main_model          
      TYPE    MCP                 
-     SOLVER  PATH                FROM LINE  419
+     SOLVER  PATH                FROM LINE  417
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
 
- RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ RESOURCE USAGE, LIMIT          0.015 10000000000.000
  ITERATION COUNT, LIMIT         3    2147483647
  EVALUATION ERRORS              0             0
 31 row/cols, 98 non-zeros, 10.20% dense.
@@ -293,9 +295,9 @@ Maximum of Grad F . . . . . . .  1.0234e+02 eqn: (QD_eq(labup))
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 13
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 13
 Basic CGE Model 2.0
-Range Statistics    SOLVE main_model Using MCP From line 419
+Range Statistics    SOLVE main_model Using MCP From line 417
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -304,9 +306,9 @@ RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 14
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 14
 Basic CGE Model 2.0
-Model Statistics    SOLVE main_model Using MCP From line 419
+Model Statistics    SOLVE main_model Using MCP From line 417
 
 
 LOOPS                                 tsim   capup
@@ -323,21 +325,21 @@ CODE LENGTH                 164     CONSTANT POOL              30
 GENERATION TIME      =        0.000 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
                L O O P S               tsim capup
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 15
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 15
 Basic CGE Model 2.0
-Solution Report     SOLVE main_model Using MCP From line 419
+Solution Report     SOLVE main_model Using MCP From line 417
 
 
                S O L V E      S U M M A R Y
 
      MODEL   main_model          
      TYPE    MCP                 
-     SOLVER  PATH                FROM LINE  419
+     SOLVER  PATH                FROM LINE  417
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
 
- RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
  ITERATION COUNT, LIMIT         2    2147483647
  EVALUATION ERRORS              0             0
 31 row/cols, 98 non-zeros, 10.20% dense.
@@ -378,9 +380,9 @@ Maximum of Grad F . . . . . . .  9.6660e+01 eqn: (QD_eq(capup))
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 16
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 16
 Basic CGE Model 2.0
-Range Statistics    SOLVE main_model Using MCP From line 419
+Range Statistics    SOLVE main_model Using MCP From line 417
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -389,9 +391,9 @@ RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 17
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 17
 Basic CGE Model 2.0
-Model Statistics    SOLVE main_model Using MCP From line 419
+Model Statistics    SOLVE main_model Using MCP From line 417
 
 
 LOOPS                                 tsim   totup
@@ -408,21 +410,21 @@ CODE LENGTH                 165     CONSTANT POOL              31
 GENERATION TIME      =        0.000 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
                L O O P S               tsim totup
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 18
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 18
 Basic CGE Model 2.0
-Solution Report     SOLVE main_model Using MCP From line 419
+Solution Report     SOLVE main_model Using MCP From line 417
 
 
                S O L V E      S U M M A R Y
 
      MODEL   main_model          
      TYPE    MCP                 
-     SOLVER  PATH                FROM LINE  419
+     SOLVER  PATH                FROM LINE  417
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
 
- RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
  ITERATION COUNT, LIMIT         2    2147483647
  EVALUATION ERRORS              0             0
 31 row/cols, 98 non-zeros, 10.20% dense.
@@ -463,9 +465,9 @@ Maximum of Grad F . . . . . . .  1.2427e+02 eqn: (QD_eq(totup))
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 19
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 19
 Basic CGE Model 2.0
-Range Statistics    SOLVE main_model Using MCP From line 419
+Range Statistics    SOLVE main_model Using MCP From line 417
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -474,9 +476,9 @@ RHS       [min, max] : [ 9.842E-01, 5.296E+01] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.248E-02, 8.285E+01]
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 20
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 20
 Basic CGE Model 2.0
-Model Statistics    SOLVE main_model Using MCP From line 419
+Model Statistics    SOLVE main_model Using MCP From line 417
 
 
 LOOPS                                 tsim   notrf
@@ -493,21 +495,21 @@ CODE LENGTH                 160     CONSTANT POOL              27
 GENERATION TIME      =        0.015 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
                L O O P S               tsim notrf
 
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 21
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 21
 Basic CGE Model 2.0
-Solution Report     SOLVE main_model Using MCP From line 419
+Solution Report     SOLVE main_model Using MCP From line 417
 
 
                S O L V E      S U M M A R Y
 
      MODEL   main_model          
      TYPE    MCP                 
-     SOLVER  PATH                FROM LINE  419
+     SOLVER  PATH                FROM LINE  417
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
 
- RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ RESOURCE USAGE, LIMIT          0.015 10000000000.000
  ITERATION COUNT, LIMIT         1    2147483647
  EVALUATION ERRORS              0             0
 31 row/cols, 96 non-zeros, 9.99% dense.
@@ -548,20 +550,20 @@ Maximum of Grad F . . . . . . .  8.2687e+01 eqn: (QD_eq(notrf))
                              0  UNBOUNDED
                              0  REDEFINED
                              0     ERRORS
-GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/06/26 22:50:49 Page 22
+GAMS 45.2.0  e4d2ee31 Oct 30, 2023          WEX-WEI x86 64bit/MS Windows - 03/25/26 13:15:52 Page 22
 Basic CGE Model 2.0
 E x e c u t i o n
 
 
-----    500 The WALRAS:
+----    498 The WALRAS:
 
-----    500 VARIABLE D.L  Dummy variable for WALRAS test
+----    498 VARIABLE D.L  Dummy variable for WALRAS test
 
 base  4.83169E-13,    homo  5.68434E-14,    labup -3.4674E-12,    capup -5.30034E-7,    totup -3.7232E-12,    notrf 4.417245E-9
 
 
 
-EXECUTION TIME       =        0.453 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
+EXECUTION TIME       =        1.125 SECONDS      4 MB  45.2.0 e4d2ee31 WEX-WEI
 
 
 USER: Medium MUD - 10 User License                   S230614|0002AO-WIN

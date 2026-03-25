@@ -19,15 +19,13 @@ $eolcom //
 *========A.Pre-settings & Options====================================================================
 
 *--------1.Set the simulation name (used for output results & database)------------------------------
-$setGlobal  SimName     uppnum
+$setGlobal  SimName     DemoSim
 
 *--------2.Choose the input database-----------------------------------------------------------------
 $setGlobal  BaseName    sam_2.0
-$setGlobal  DataInput   SAM
 
 *--------3.Choose ifDisplay and ifOutput-------------------------------------------------------------
 $setGlobal  ifDisplay   NO
-$setGlobal  ifOutput    NO
 
 *========B.Input Sets, Parameters & Basedata=========================================================
 
@@ -43,7 +41,7 @@ Alias   (t,tsim);
 display t;
 
 *--------2.Sets Definition---------------------------------------------------------------------------
-$iftheni    %DataInput% == 'SAM'
+$ifthen exist   ../data_input/%BaseName%.gdx
 Sets    is  SAM accounts;
 *Read from external SAM table
     $$gdxin  ../data_input/%BaseName%.gdx
@@ -81,7 +79,7 @@ Scalars
 ;
 
 *--------5.Base Data Read-in-------------------------------------------------------------------------
-$iftheni    %DataInput% == 'SAM'
+$ifthen exist   ../data_input/%BaseName%.gdx
 *Read from external SAM table
 Table   sam(is,js)  Social accounting matrix;
 execute_load  '../data_input/%BaseName%.gdx', sam;

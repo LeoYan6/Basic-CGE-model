@@ -10,6 +10,8 @@ env/
 .ipynb_checkpoints/
 
 # Logs and temp files
+*.lst
+*.lxi
 *.log
 *.tmp
 
